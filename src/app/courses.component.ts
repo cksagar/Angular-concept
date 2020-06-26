@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
         template:'<h2>{{getTitle()}}</h2>'    
     })
     export class CoursesComponent{
-        title = "now my name is cksagar"
+        title = "my name is cksagar"
         getTitle(){
        return this.title
     }
