@@ -1,12 +1,16 @@
 
 import { Component } from '@angular/core';
-    @Component({
-        selector:'courses',
-        template:'<h2>{{getTitle()}}</h2>'    
-    })
-    export class CoursesComponent{
-        title = "my name is cksagar"
-        getTitle(){
-       return this.title
-    }
-    }
+@Component({
+    selector:'courses',
+    template:`
+    <h2>{{title}}</h2>
+    <ul>
+    <li *ngFor="let course of courses">
+    {{course}} </li>
+    </ul>
+    `
+})
+export class CoursesComponent{
+    title = "now my name is cksagar"
+    courses = ['course1','course2', 'course 3']
+}
