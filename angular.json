@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Angular-Concepts"
+    }
+  },
+  "defaultProject": "Angular-Concepts",
+  "cli": {
+    "analytics": false
+  }
 }
