@@ -14,11 +14,29 @@ export class EmployeeComponent implements OnInit {
   employees: Employee[];
   imagePath = 'https://angular.io/assets/images/logos/angular/angular.svg';
 
+  selectedEmployeeCountRadioButton = 'All';
+
   constructor(private employeeServices: EmployeeServices) {
   }
 
   ngOnInit(): void {
     this.employees = this.employeeServices.getServies();
     this.displayedColumns = ['id', 'name', 'salary', 'age', 'gender', 'dob'];
+  }
+
+
+  getAllEmployees(): number {
+    return this.employees.length;
+  }
+  getAllMaleEmployees(): number {
+    return this.employees.filter(x => x.gender === 'male').length;
+  }
+
+  getAllFemaleEmployees(): number {
+    return this.employees.filter(x => x.gender === 'female').length;
+  }
+
+  onEmployeeCountRadioButtonChanged(selectedRadioButtonValue: string): void{
+    this.selectedEmployeeCountRadioButton = selectedRadioButtonValue;
   }
 }
