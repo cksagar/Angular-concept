@@ -1,0 +1,14 @@
+
+.head-title {
+    text-align: center;
+  }
+
+  .add-btn {
+    color: white;
+    background-color: teal;
+  }
+
+  .remove-btn {
+    color: white;
+    background-color: red;
+  }

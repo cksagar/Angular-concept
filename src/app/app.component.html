@@ -1,2 +1,93 @@
-<h1>Angular</h1>
-<courses></courses>
+<div class="head-title">
+    <img src={{imagePath}} width="120px" height="120px" />
+    <h3>Angular Concepts</h3>
+</div>
+<mat-card>
+    <h2 class="head-title">Data Binding</h2>
+    <app-course></app-course>
+
+    <br><br><br><br>
+    <h3>Two way Data Binding</h3>
+    <!-- <input [value]='myName' (input)='myName=$event.target.value'/>
+    <br><br>
+    You entered: {{myName}}
+    <br><br> -->
+
+    <!-- another way provide by ang -->
+    <input [(ngModel)]='myName' />
+    <br><br>
+    You entered: {{myName}}
+    <br><br>
+
+    <div div class="row">
+        <div class="col">
+            <h5>*ngIf concept</h5>
+            <div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
+            <ng-template #coursesList>
+                Courses List is here
+            </ng-template>
+            <ng-template #noCourses>
+                No courses
+            </ng-template>
+        </div>
+        <div class="col">
+            <h5>*ngSwitch concept</h5>
+            <ul class="nav nav-plls">
+                <button mat-stroked-button color="cyan" [class.active]="viewMode == 'map'"><a (click)="viewMode='map'"> Map View</a></button>
+                <button mat-stroked-button color="cyan" [class.active]="viewMode  == 'list'"><a (click)="viewMode='list'">List View</a></button>
+            </ul>
+            <div [ngSwitch]="viewMode">
+                <div *ngSwitchCase="'map'"> You selected: Map View Content</div>
+                <div *ngSwitchCase="'list'"> You selected: List View Content</div>
+                <div *ngSwitchDefault> You selected: Otherwise</div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h5>*ngFor concept</h5>
+            <button class="add-btn" mat-stroked-button color="cyan" (click)="addCourse()">Add Item</button>
+            <li *ngFor="let item of courses; index as i; last as isLast; first as isFirst">
+                {{i}} - {{item.name | uppercase}}
+                <span *ngIf="isLast"> this is Last</span>
+                <span *ngIf="isFirst"> this is First</span>
+                <button class="remove-btn" mat-stroked-button color="primary" (click)="removeCourse(item)">Remove
+                    Item</button>
+            </li>
+        </div>
+    </div>
+
+
+    <br><br>
+    <h3>Pipes concept </h3>
+    <div div class="row">
+        <div class="col">
+            <h5>Date pipes</h5>
+            <p>Today is {{ today | date}}</p>
+            <p> Today is {{ today | date:'fullDate'}}</p>
+            <p> Today is {{ today | date:'medium'}}</p>
+        </div>
+        <div class="col">
+            <h5>Decimal pipes</h5>
+            <!--output '5- number before decimal, 5-5 numbers after decimal (min to max)'-->
+            <p> pi (5.5-5): {{pi | number:'5.5'}}</p>
+            <p>pi (3.5-5): {{pi | number:'3.5-5'}}</p>
+        </div>
+        <div class="col">
+            <h5>Currency pipes</h5>
+            <p> {{money}}('USD':true:'1.1-2') converted to {{ money | currency:'USD':true:'1.1-2'}}</p>
+
+        </div>
+        <div>
+            <h5>Custom pipe for exponential</h5>
+            <input [(ngModel)]='baseNumber' />
+            <input [(ngModel)]='exponent' />
+            <p>Exponential is: {{baseNumber| exponentNumber:exponent}}</p>
+        </div>
+        <div>
+            <h5>Custom pipe for reverseString</h5>
+            <input [(ngModel)]='str' />
+            <p>Reverse is: {{str| stringReverse}}</p>
+        </div>
+    </div>
+
+</mat-card>

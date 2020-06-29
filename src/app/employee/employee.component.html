@@ -1,0 +1,69 @@
+
+
+<div div class="row">
+  <div class="col">
+    <h3 class="header-title">{{title}}</h3>
+    <table class="table">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>DOB</th>
+      </tr>
+      <tr *ngFor="let employee of employees">
+        <td >{{employee.id | uppercase}}</td>
+        <td >{{employee.name| employeeTitle: employee.gender}}</td>
+        <td >{{employee.salary}}</td>
+        <td >{{employee.age}}</td>
+        <td >{{employee.gender}}</td>
+        <td >{{employee.dob}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="col">
+    <h3>Material Table with Data binding </h3>
+    <mat-table [dataSource]="employees" class="mat-elevation-z8">
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id|uppercase}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <!-- Salary Column -->
+      <ng-container matColumnDef="salary">
+        <mat-header-cell *matHeaderCellDef> Salary </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.salary}} </mat-cell>
+      </ng-container>
+
+      <!-- Age Column -->
+      <ng-container matColumnDef="age">
+        <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
+      </ng-container>
+
+      <!-- Gender Column -->
+      <ng-container matColumnDef="gender">
+        <mat-header-cell *matHeaderCellDef> Gender </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+      </ng-container>
+
+      <!-- DOB Column -->
+      <ng-container matColumnDef="dob">
+        <mat-header-cell *matHeaderCellDef> DOB </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.dob}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div>
