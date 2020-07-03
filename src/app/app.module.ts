@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { SimpleChangesComponent } from './other/SimpleChanges.component';
 import { ExponentialPipe } from './exponential.pipe';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeTitlePipe } from './employee/employeeTitle.pipe';
@@ -22,7 +24,8 @@ import { EmployeeCountComponent } from './employee/employee-count/employee-count
     EmployeeTitlePipe,
     ExponentialPipe,
     StringReversePipe,
-    EmployeeCountComponent
+    EmployeeCountComponent,
+    SimpleChangesComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { EmployeeCountComponent } from './employee/employee-count/employee-count
     MatCardModule,
     MatTableModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [
     EmployeeServices

@@ -1,14 +1,9 @@
-
-
-
 <div div class="row">
   <div class="col">
     <h3 class="header-title">{{title}}</h3>
-    <app-employee-count 
-    [all]='getAllEmployees()'
-    [male]='getAllMaleEmployees()'
-    [female]='getAllFemaleEmployees()'
-    (countRadioButtonSelectionChanged)='onEmployeeCountRadioButtonChanged($event)'></app-employee-count>
+    <app-employee-count *ngIf="employees" [all]='getAllEmployees()' [male]='getAllMaleEmployees()'
+      [female]='getAllFemaleEmployees()' (countRadioButtonSelectionChanged)='onEmployeeCountRadioButtonChanged($event)'>
+    </app-employee-count>
     <table class="table">
       <tr>
         <th>Id</th>
@@ -18,16 +13,25 @@
         <th>Gender</th>
         <th>DOB</th>
       </tr>
-      <ng-container  *ngFor="let employee of employees" >
-      <tr *ngIf="selectedEmployeeCountRadioButton=='All' || selectedEmployeeCountRadioButton === employee.gender">
-        <td >{{employee.id | uppercase}}</td>
-        <td >{{employee.name| employeeTitle: employee.gender}}</td>
-        <td >{{employee.salary}}</td>
-        <td >{{employee.age}}</td>
-        <td >{{employee.gender}}</td>
-        <td >{{employee.dob}}</td>
-      </tr>
-    </ng-container>
+      <tbody>
+        <ng-container *ngFor="let employee of employees">
+          <tr *ngIf="selectedEmployeeCountRadioButton=='All' || selectedEmployeeCountRadioButton === employee.gender">
+            <td>{{employee.id | uppercase}}</td>
+            <td>{{employee.name| employeeTitle: employee.gender}}</td>
+            <td>{{employee.salary}}</td>
+            <td>{{employee.age}}</td>
+            <td>{{employee.gender}}</td>
+            <td>{{employee.dob}}</td>
+          </tr>
+        </ng-container>
+        <tr *ngIf="!employees">
+          <td colspan="5">{{errorMessage}}</td>
+        </tr>
+        <tr *ngIf="employees && employees.length === 0">
+          <td colspan="5">No data to display</td>
+        </tr>
+
+      </tbody>
     </table>
   </div>
 
@@ -75,3 +79,27 @@
     </mat-table>
   </div>
 </div>
+
+<nav class="navbar navbar-expand-md bg-red navbar-dark fixed-top">
+  <a class="navbar-brand" href="#">Angular Bootstrap Demo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" 
+  aria-controls="navbarCollapse"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact-list">Contacts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact-create">Create</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeServices } from './services/employee.services';
-import { Employee } from './Interface/employee';
-import { NgIf } from '@angular/common';
+import { IEmployee } from './Interface/employee';
 
 @Component({
   selector: 'app-course',
@@ -11,16 +10,22 @@ import { NgIf } from '@angular/common';
 export class EmployeeComponent implements OnInit {
   displayedColumns: string[];
   title = 'Basic HTML Table with Data binding';
-  employees: Employee[];
+  employees: IEmployee[];
   imagePath = 'https://angular.io/assets/images/logos/angular/angular.svg';
-
+  errorMessage = "Loading data... please wait!";
   selectedEmployeeCountRadioButton = 'All';
 
   constructor(private employeeServices: EmployeeServices) {
   }
 
   ngOnInit(): void {
-    this.employees = this.employeeServices.getServies();
+    this.employeeServices.getEmployees()
+      .subscribe(data => { this.employees = data; },
+        e => {
+          this.errorMessage = e.message;
+          console.error('e: ' + this.errorMessage);
+        });
+
     this.displayedColumns = ['id', 'name', 'salary', 'age', 'gender', 'dob'];
   }
 
@@ -29,14 +34,14 @@ export class EmployeeComponent implements OnInit {
     return this.employees.length;
   }
   getAllMaleEmployees(): number {
-    return this.employees.filter(x => x.gender === 'male').length;
+    return this.employees.filter(x => x.gender === 'Male').length;
   }
 
   getAllFemaleEmployees(): number {
-    return this.employees.filter(x => x.gender === 'female').length;
+    return this.employees.filter(x => x.gender === 'Female').length;
   }
 
-  onEmployeeCountRadioButtonChanged(selectedRadioButtonValue: string): void{
+  onEmployeeCountRadioButtonChanged(selectedRadioButtonValue: string): void {
     this.selectedEmployeeCountRadioButton = selectedRadioButtonValue;
   }
 }
