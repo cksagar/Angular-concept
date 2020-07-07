@@ -1,0 +1,13 @@
+div.card-header {
+    font-size: large;
+    color: rgb(44, 253, 89);
+    background-color: grey;
+   }
+   
+   div.card {
+     margin-top: 10px
+   }
+   
+   .table {
+     margin-top: 10px
+   }

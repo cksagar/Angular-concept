@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeServices } from './services/employee.services';
+import { EmployeeService } from './services/employee.service';
 import { IEmployee } from './Interface/employee';
 
 @Component({
@@ -12,14 +12,14 @@ export class EmployeeComponent implements OnInit {
   title = 'Basic HTML Table with Data binding';
   employees: IEmployee[];
   imagePath = 'https://angular.io/assets/images/logos/angular/angular.svg';
-  errorMessage = "Loading data... please wait!";
+  errorMessage = 'Loading data... please wait!';
   selectedEmployeeCountRadioButton = 'All';
 
-  constructor(private employeeServices: EmployeeServices) {
+  constructor(private employeeService: EmployeeService) {
   }
 
   ngOnInit(): void {
-    this.employeeServices.getEmployees()
+    this.employeeService.getEmployees()
       .subscribe(data => { this.employees = data; },
         e => {
           this.errorMessage = e.message;

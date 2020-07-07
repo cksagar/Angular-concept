@@ -1,43 +1,47 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { SimpleChangesComponent } from './other/SimpleChanges.component';
-import { ExponentialPipe } from './exponential.pipe';
+import { SimpleChangesComponent } from './simple-changes/simpleChanges.component';
 import { EmployeeComponent } from './employee/employee.component';
-import { EmployeeTitlePipe } from './employee/employeeTitle.pipe';
-import { EmployeeServices } from './employee/services/employee.services';
+import { EmployeeService } from './employee/services/employee.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule } from '@angular/material/card';
-import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule } from '@angular/material/button';
-import { StringReversePipe } from './string-reverse.pipe';
-import { EmployeeCountComponent } from './employee/employee-count/employee-count.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
+import { ProductService } from './products/services/product.service';
+import { ProductModule } from './products/product.module';
+import { EmployeeModule } from './employee/employee.module';
+import { SharedModule } from './shared/shared.module';
+import { SimpleChangesModule } from './simple-changes/simple-changes.module';
 
+const appRoutes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'employee', component: EmployeeComponent },
+  { path: 'simple-changes', component: SimpleChangesComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeComponent,
-    EmployeeTitlePipe,
-    ExponentialPipe,
-    StringReversePipe,
-    EmployeeCountComponent,
-    SimpleChangesComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatTableModule,
     FormsModule,
-    MatButtonModule,
-    HttpClientModule
+    RouterModule.forRoot(appRoutes),
+    ProductModule,
+    EmployeeModule,
+    SimpleChangesModule,
+    SharedModule
   ],
   providers: [
-    EmployeeServices
+    EmployeeService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
