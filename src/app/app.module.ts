@@ -10,11 +10,11 @@ import { EmployeeService } from './employee/services/employee.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
-import { ProductService } from './products/services/product.service';
 import { ProductModule } from './products/product.module';
 import { EmployeeModule } from './employee/employee.module';
 import { SharedModule } from './shared/shared.module';
 import { SimpleChangesModule } from './simple-changes/simple-changes.module';
+import { ProductService } from './products/product.service';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },

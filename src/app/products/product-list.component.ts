@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CssSelector } from '@angular/compiler';
-import { IProduct } from './interface/product';
-import { ProductService } from './services/product.service';
+import { Product } from './product';
+
+import { ProductService } from './product.service';
 
 @Component({
   selector: 'pm-products',
@@ -14,7 +14,7 @@ export class ProductListComponent implements OnInit {
   imageMargin = 2;
   showImage = false;
   _listFilter = '';
-  products: IProduct[];
+  products: Product[];
   errorMessage = '';
   get listFilter(): string {
     return this._listFilter;
@@ -25,7 +25,7 @@ export class ProductListComponent implements OnInit {
     this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
   }
 
-  filteredProducts: IProduct[];
+  filteredProducts: Product[];
 
   constructor(private productService: ProductService) {
   }
@@ -44,9 +44,9 @@ export class ProductListComponent implements OnInit {
     this.showImage = !this.showImage;
   }
 
-  performFilter(filterBy: string): IProduct[] {
+  performFilter(filterBy: string): Product[] {
     filterBy = filterBy.toLocaleLowerCase();
-    return this.products.filter((product: IProduct) =>
+    return this.products.filter((product: Product) =>
       product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
