@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductDetailComponent } from './product-detail.component';
 import { ProductListComponent } from './product-list.component';
 import { ConvertToSpacePipe } from '../shared/convert-to-spaces.pipe';
 import { BrowserModule } from '@angular/platform-browser';
