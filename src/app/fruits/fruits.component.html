@@ -1,0 +1,30 @@
+<div class='card'>
+    <div class='card-header'>
+        <h4> {{pageTitle}}</h4>
+    </div>
+    <div class='card-body'>
+        <div class="table-responsive">
+            <table class="table" *ngIf='fruits && fruits.length'>
+                <thead>
+                    <tr>
+                        <th>Icon</th>
+                        <th>Name</th>
+                        <th>Family</th>
+                        <th>Genus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- empty for now -->
+                    <tr *ngFor='let fruit of fruits'>
+                        <td><img [src]='fruit.imageUrl' [title]='fruit.name' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'></td>
+                        <td><a [routerLink]="['/fruits', fruit.id]">
+                                {{ fruit.name }}
+                            </a></td>
+                        <td>{{fruit.family}}</td>
+                        <td>{{fruit.genus}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

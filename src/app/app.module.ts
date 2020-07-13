@@ -10,19 +10,30 @@ import { EmployeeService } from './employee/services/employee.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
-import { ProductModule } from './products/product.module';
 import { EmployeeModule } from './employee/employee.module';
 import { SharedModule } from './shared/shared.module';
 import { SimpleChangesModule } from './simple-changes/simple-changes.module';
 import { ProductService } from './products/product.service';
 
+
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
+  {
+    path: 'products',
+    loadChildren: () =>
+      import('./products/product.module').then(product => product.ProductModule)
+  },
+  {
+    path: 'fruits',
+    loadChildren: () =>
+      import('./fruits/fruits.module').then(fruits => fruits.FruitsModule)
+  },
   { path: 'employee', component: EmployeeComponent },
   { path: 'simple-changes', component: SimpleChangesComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
+
 
 @NgModule({
   declarations: [
@@ -34,7 +45,6 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    ProductModule,
     EmployeeModule,
     SimpleChangesModule,
     SharedModule

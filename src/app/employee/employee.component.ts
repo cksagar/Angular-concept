@@ -24,7 +24,8 @@ export class EmployeeComponent implements OnInit {
         e => {
           this.errorMessage = e.message;
           console.error('e: ' + this.errorMessage);
-        });
+        }
+      );
 
     this.displayedColumns = ['id', 'name', 'salary', 'age', 'gender', 'dob'];
   }

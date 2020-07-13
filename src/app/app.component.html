@@ -1,31 +1,39 @@
+<span class="fa fa-spinner spinner" *ngIf="loading"></span>
+
 <div class="head-title">
-  <img src={{imagePath}} width="120px" height="120px" />
-  <h3>{{title}}</h3>
+    <img src={{imagePath}} width="120px" height="120px" />
+    <h3>{{title}}</h3>
 </div>
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-  <a class="navbar-brand" href="#">Angular Bootstrap Demo</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav mr-auto">
-      <li routerLinkActive='active' class="nav-item">
-        <a class="nav-link" routerLink="/home">Home</a>
-      </li>
-      <li routerLinkActive='active' class="nav-item">
-        <a class="nav-link" routerLink="/products">Products</a>
-      </li>
-      <li routerLinkActive='active' class="nav-item">
-        <a class="nav-link" routerLink="/employee">Employee</a>
-      </li>
-      <li routerLinkActive='active' class="nav-item">
-        <a class="nav-link" routerLink="/simple-changes">Simple Changes</a>
-      </li>
-    </ul>
-  </div>
+    <a class="navbar-brand" href="#">{{title}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li routerLinkActive='active' class="nav-item">
+                <a class="nav-link" routerLink="/home">Home</a>
+            </li>
+            <li routerLinkActive='active' class="nav-item">
+                <a class="nav-link" routerLink="/products">Products</a>
+            </li>
+            <li routerLinkActive='active' class="nav-item">
+                <a class="nav-link" routerLink="/employee">Employee</a>
+            </li>
+            <li routerLinkActive='active' class="nav-item">
+                <a class="nav-link" routerLink="/fruits">Fruits</a>
+            </li>
+            <li routerLinkActive='active' class="nav-item">
+                <a class="nav-link" routerLink="/simple-changes">Examples</a>
+            </li>
+        </ul>
+    </div>
 </nav>
-<mat-card >
-  <router-outlet></router-outlet>
+
+<mat-card>
+    <div class="container">
+        <router-outlet [@slideInAnimation]="o.isActivated ? o.activatedRoute : '' " #o='outlet'></router-outlet>
+    </div>
 </mat-card>

@@ -1,0 +1,71 @@
+<div class="card">
+    <div class="card-header">
+        {{pageTitle}}
+    </div>
+
+    <div class="card-body" *ngIf="fruit">
+
+        <div class="row">
+
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-3">Name:</div>
+                    <div class="col-md-6">{{fruit.name}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">Genus:</div>
+                    <div class="col-md-6">{{fruit.genus}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">Family:</div>
+                    <div class="col-md-6">{{fruit.family}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">Order:</div>
+                    <div class="col-md-6">{{fruit.order}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">Nutritrion:</div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-3">Fat:</div>
+                            <div class="col-md-9">{{fruit.nutritions.fat}}</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">Protein:</div>
+                            <div class="col-md-9">{{fruit.nutritions.protein}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">Calories:</div>
+                            <div class="col-md-9">{{fruit.nutritions.calories}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">Sugar:</div>
+                            <div class="col-md-9">{{fruit.nutritions.sugar}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">Carbohydrates:</div>
+                            <div class="col-md-8">{{fruit.nutritions.carbohydrates}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" *ngIf="fruit.imageUrl">
+                <img class="center-block img-responsive" [style.height.px]="250" [style.margin.px]="2" [src]="fruit.imageUrl" [title]="fruit.name">
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <button class="btn btn-outline-secondary mr-3" style="width:80px" [routerLink]="['/fruits']" queryParamsHandling="preserve">
+                    <i class="fa fa-chevron-left"></i> Back
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}
+</div>

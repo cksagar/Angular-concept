@@ -1,13 +1,11 @@
-
- .table {
+.table {
     color: teal;
-    width: 50%;
-    /* margin-left: 25%; */
 }
 
 .header-title {
     text-align: center;
 }
+
 .col {
     text-align: center;
 }
@@ -17,21 +15,21 @@
     color: teal;
     align-items: center;
 }
-/*
+
 div.row {
     display: table;
     width: 100%;
     text-align: center;
-    border-collapse: collapse; /* Prevent spaces between cells */
-/* }
-div.row > .column {
+    border-collapse: collapse;
+    /* Prevent spaces between cells */
+}
+
+div.row>.column {
     display: table-cell;
     width: 50%;
 }
-div.row > .column:first-child {
+
+div.row>.column:first-child {
     /* Since we only want borders between the elements, remove the leftmost border */
-    /* border-left: 2; 
-} */ 
-
-
-
+    border-left: 2;
+}
