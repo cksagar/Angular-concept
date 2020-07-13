@@ -14,6 +14,7 @@ import { EmployeeModule } from './employee/employee.module';
 import { SharedModule } from './shared/shared.module';
 import { SimpleChangesModule } from './simple-changes/simple-changes.module';
 import { ProductService } from './products/product.service';
+import { CustomerComponent } from './customer/customer.component';
 
 
 const appRoutes: Routes = [
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
