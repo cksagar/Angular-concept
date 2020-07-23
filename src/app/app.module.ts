@@ -14,7 +14,11 @@ import { EmployeeModule } from './employee/employee.module';
 import { SharedModule } from './shared/shared.module';
 import { SimpleChangesModule } from './simple-changes/simple-changes.module';
 import { ProductService } from './products/product.service';
-import { CustomerComponent } from './customer/customer.component';
+import { AccountComponent } from './account/account.component';
+import { NewAccountComponent } from './new-account/new-account.component';
+import { HeaderComponent } from './header/header.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 
 const appRoutes: Routes = [
@@ -40,7 +44,11 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    CustomerComponent
+    AccountComponent,
+    NewAccountComponent,
+    HeaderComponent,
+    RecipesComponent,
+    ShoppingListComponent
   ],
   imports: [
     BrowserModule,

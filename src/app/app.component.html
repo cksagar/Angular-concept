@@ -1,4 +1,21 @@
-<span class="fa fa-spinner spinner" *ngIf="loading"></span>
+<app-header ></app-header>
+
+<!-- <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <app-new-account (accountAdded)="onAccountAdded($event)"></app-new-account>
+        <hr>
+        <app-account
+          *ngFor="let acc of accounts; let i = index"
+          [account]="acc"
+          [id]="i"
+          (statusChanged)="onStatusChanged($event)"></app-account>
+      </div>
+    </div>
+  </div>
+   -->
+
+<!-- <span class="fa fa-spinner spinner" *ngIf="loading"></span>
 
 <div class="head-title">
     <img src={{imagePath}} width="120px" height="120px" />
@@ -9,8 +26,10 @@
     <a class="navbar-brand" href="#">{{title}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon">chetajjj</span>
     </button>
+	
+	
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li routerLinkActive='active' class="nav-item">
@@ -36,4 +55,4 @@
     <div class="container">
         <router-outlet [@slideInAnimation]="o.isActivated ? o.activatedRoute : '' " #o='outlet'></router-outlet>
     </div>
-</mat-card>
+</mat-card> -->
