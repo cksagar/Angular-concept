@@ -1,63 +1,40 @@
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
-
 import { AppComponent } from './app.component';
-import { SimpleChangesComponent } from './simple-changes/simpleChanges.component';
-import { EmployeeComponent } from './employee/employee.component';
+
 import { EmployeeService } from './employee/services/employee.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HomeComponent } from './home/home.component';
-import { EmployeeModule } from './employee/employee.module';
 import { SharedModule } from './shared/shared.module';
-import { SimpleChangesModule } from './simple-changes/simple-changes.module';
 import { ProductService } from './products/product.service';
-import { AccountComponent } from './account/account.component';
-import { NewAccountComponent } from './new-account/new-account.component';
 import { HeaderComponent } from './header/header.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-
-
-const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
-  {
-    path: 'products',
-    loadChildren: () =>
-      import('./products/product.module').then(product => product.ProductModule)
-  },
-  {
-    path: 'fruits',
-    loadChildren: () =>
-      import('./fruits/fruits.module').then(fruits => fruits.FruitsModule)
-  },
-  { path: 'employee', component: EmployeeComponent },
-  { path: 'simple-changes', component: SimpleChangesComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent },
-];
-
+import { CustomerReactiveWayComponent } from './customer-reactive-way/customer-reactive-way.component';
+import { HeaderMenuComponent } from './header-menu/header-menu.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent,
-    AccountComponent,
-    NewAccountComponent,
     HeaderComponent,
-    RecipesComponent,
-    ShoppingListComponent
+    CustomerReactiveWayComponent,
+    HeaderMenuComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
-    EmployeeModule,
-    SimpleChangesModule,
-    SharedModule
+    MatInputModule,
+    HttpClientModule,
+    MatFormFieldModule,
+    SharedModule,
+    AppRoutingModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [
     EmployeeService,

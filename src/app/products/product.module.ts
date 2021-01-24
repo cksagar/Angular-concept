@@ -3,7 +3,6 @@ import { ProductDetailComponent } from './product-detail.component';
 import { ProductListComponent } from './product-list.component';
 import { ConvertToSpacePipe } from '../shared/convert-to-spaces.pipe';
 import { RouterModule } from '@angular/router';
-import { ProductDetailGuard } from './product-detail.guard';
 import { SharedModule } from '../shared/shared.module';
 
 

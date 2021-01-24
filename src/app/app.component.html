@@ -1,58 +1,17 @@
-<app-header ></app-header>
+<span class="fa fa-spinner spinner" *ngIf="loading"></span>
 
-<!-- <div class="container">
+<app-header>
+</app-header>
+<div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-8 col-md-offset-2">
-        <app-new-account (accountAdded)="onAccountAdded($event)"></app-new-account>
-        <hr>
-        <app-account
-          *ngFor="let acc of accounts; let i = index"
-          [account]="acc"
-          [id]="i"
-          (statusChanged)="onStatusChanged($event)"></app-account>
-      </div>
+        <div class="col-md-12">
+            <router-outlet></router-outlet>
+        </div>
     </div>
-  </div>
-   -->
-
-<!-- <span class="fa fa-spinner spinner" *ngIf="loading"></span>
-
-<div class="head-title">
-    <img src={{imagePath}} width="120px" height="120px" />
-    <h3>{{title}}</h3>
 </div>
-
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
-    <a class="navbar-brand" href="#">{{title}}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">chetajjj</span>
-    </button>
-	
-	
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-            <li routerLinkActive='active' class="nav-item">
-                <a class="nav-link" routerLink="/home">Home</a>
-            </li>
-            <li routerLinkActive='active' class="nav-item">
-                <a class="nav-link" routerLink="/products">Products</a>
-            </li>
-            <li routerLinkActive='active' class="nav-item">
-                <a class="nav-link" routerLink="/employee">Employee</a>
-            </li>
-            <li routerLinkActive='active' class="nav-item">
-                <a class="nav-link" routerLink="/fruits">Fruits</a>
-            </li>
-            <li routerLinkActive='active' class="nav-item">
-                <a class="nav-link" routerLink="/simple-changes">Examples</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 
 <mat-card>
     <div class="container">
         <router-outlet [@slideInAnimation]="o.isActivated ? o.activatedRoute : '' " #o='outlet'></router-outlet>
     </div>
-</mat-card> -->
+</mat-card>

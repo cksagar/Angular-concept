@@ -5,7 +5,6 @@ import { StarComponent } from './star.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule,
     MatCardModule,
     MatTableModule,
     MatButtonModule
@@ -23,7 +21,6 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatTableModule,
     MatButtonModule,
-    HttpClientModule,
     StarComponent]
 })
 export class SharedModule { }

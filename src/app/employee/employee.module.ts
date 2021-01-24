@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { EmployeeComponent } from './employee.component';
 import { EmployeeTitlePipe } from './employeeTitle.pipe';
@@ -10,12 +11,15 @@ import { SharedModule } from '../shared/shared.module';
         EmployeeTitlePipe,
         EmployeeCountComponent
     ],
-    imports: [SharedModule],
-    exports: []
-
+    imports: [SharedModule, RouterModule.forChild([
+        { path: '', component: EmployeeComponent }
+    ])],
+    exports: [
+        EmployeeComponent,
+        EmployeeTitlePipe,
+        EmployeeCountComponent]
 })
 
 
 export class EmployeeModule {
-
 }

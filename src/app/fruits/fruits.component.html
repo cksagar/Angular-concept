@@ -16,7 +16,8 @@
                 <tbody>
                     <!-- empty for now -->
                     <tr *ngFor='let fruit of fruits'>
-                        <td><img [src]='fruit.imageUrl' [title]='fruit.name' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'></td>
+                        <td><img [src]='fruit.imageUrl' [title]='fruit.name' [style.width.px]='imageWidth'
+                                [style.margin.px]='imageMargin'></td>
                         <td><a [routerLink]="['/fruits', fruit.id]">
                                 {{ fruit.name }}
                             </a></td>

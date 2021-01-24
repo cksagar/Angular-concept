@@ -20,7 +20,9 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.employeeService.getEmployees()
-      .subscribe(data => { this.employees = data; },
+      .subscribe(data => {
+        this.employees = data;
+      },
         e => {
           this.errorMessage = e.message;
           console.error('e: ' + this.errorMessage);
